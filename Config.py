@@ -9,7 +9,7 @@ class Config():
 
     query_set_size = 50
 
-    batch_iter = 20
+    batch_iter = 100
 
     freeze_epoch = 20
 
@@ -27,8 +27,8 @@ class Config():
 
 
 
-    n_classes = 5
-    reinit_epoch = 20
+    n_classes = 3
+
     reinit_num = 4
 
     input_dim = 155
