@@ -229,7 +229,7 @@ def train(config, train_index, val_index):
                                                Train=True, checkpoint= checkpoint)
 
         ##  reinit
-        if ((meta_iteration % config.reinit_epoch == 0) & (meta_iteration > 0)):
+        if ((meta_iteration % config.reinit_epoch == 0) & (meta_iteration > 1)):
             flag_reinit += 1
             if (flag_reinit <= config.reinit_num):
 
