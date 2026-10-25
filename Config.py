@@ -11,7 +11,6 @@ class Config():
 
     batch_iter = 100
 
-    freeze_epoch = 20
 
     mini_task_size = 100
 
@@ -23,7 +22,6 @@ class Config():
 
     test_batch_size = 128#
 
-    meta_batch_size = 5
 
 
 
