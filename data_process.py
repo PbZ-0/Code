@@ -56,7 +56,7 @@ def load_dataset(path):
     Y = np.load(path+'Label_pilot.npy')
     X1 = np.load(path+'EMG_pilot_downsample.npy')
     X2 = np.load(path+'ECG_pilot_downsample.npy')
-    X3 = np.load(path+'EDA_128_pilot_downsample.npy')
+    X3 = np.load(path+'EDA_pilot_downsample.npy')
     X4 = np.load(path+'RESP_pilot_downsample.npy')
     X = np.concatenate((X1, X2, X3, X4), axis=1)
     X = divied_data(X)
