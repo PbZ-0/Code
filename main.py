@@ -111,13 +111,13 @@ def main(config, tasks_data, tasks_labels, model, iteration, device,  mini_task_
 
                 with torch.no_grad():
                     query_logit = torch.argmax(query_logit, dim=1).cpu().numpy()
-                    accuracy += accuracy_score(query_logit, labels.cpu())
+                    accuracy += accuracy_score( labels.cpu(), query_logit)
 
-                    precision += precision_score(query_logit, labels.cpu(), average='macro')
+                    precision += precision_score(labels.cpu(), query_logit, average='macro')
 
-                    recall += recall_score(query_logit, labels.cpu(), average='macro', zero_division=0)
+                    recall += recall_score(labels.cpu(), query_logit,  average='macro', zero_division=0)
 
-                    F1 += f1_score(query_logit, labels.cpu(), average='macro')
+                    F1 += f1_score(labels.cpu(), query_logit,  average='macro')
 
                 total_loss += outer_loss
 
@@ -143,10 +143,10 @@ def main(config, tasks_data, tasks_labels, model, iteration, device,  mini_task_
 
                 with torch.no_grad():
                     query_logit = torch.argmax(query_logit, dim=1).cpu().numpy()
-                    accuracy += accuracy_score(query_logit, labels.cpu())
-                    precision += precision_score(query_logit, labels.cpu(), average='macro')
-                    recall += recall_score(query_logit, labels.cpu(), average='macro')
-                    F1 += f1_score(query_logit, labels.cpu(), average='macro')
+                    accuracy += accuracy_score(labels.cpu(), query_logit, )
+                    precision += precision_score(labels.cpu(), query_logit,  average='macro')
+                    recall += recall_score(labels.cpu(),query_logit,  average='macro')
+                    F1 += f1_score(labels.cpu(), query_logit,  average='macro')
                     total_loss += outer_loss
                 return total_loss.detach().cpu().numpy(), accuracy.detach().cpu().numpy(), precision.detach().cpu().numpy(), recall.detach().cpu().numpy(), F1.detach().cpu().numpy()
     if Train:
