@@ -49,7 +49,7 @@ def main(config, tasks_data, tasks_labels, model, iteration, device,  mini_task_
     F1 = torch.tensor(0., device=device)
 
     for task_idx, (task_data, task_label) in enumerate(zip(tasks_data, tasks_labels)):
-        with higher.innerloop_ctx(model, inner_optimizer, copy_initial_weights=False) as (fnet, diffopt)
+        with higher.innerloop_ctx(model, inner_optimizer, copy_initial_weights=False,track_higher_grads=False) as (fnet, diffopt)
 
             outer_loss = torch.tensor(0., device=device)
 
