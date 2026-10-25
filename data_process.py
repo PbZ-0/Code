@@ -26,7 +26,7 @@ def task_generator(config,  data, label):
     return [tasks_data, tasks_labels]
 
 def divied_data(data):
-    group_sizes = [240, 240, 240, 240, 210, 240, 240, 240, 240, 210]##driver subject number
+    group_sizes = [240, 240, 240, 240, 240, 240, 240, 240, 240, 240]##driver subject number
     ##pilot subject number:
     #group_sizes = [188, 206, 190, 207, 151, 204, 211, 200, 209, 199, 222, 181, 216, 209, 218, 211, 202, 213, 206, 278, 217, 203, 206, 212, 186, 229, 207, 210, 205]
     indexed_data = {}
