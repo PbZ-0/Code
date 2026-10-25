@@ -214,7 +214,6 @@ def train(config, train_index, val_index):
     val_rec = []
     val_f1 = []
 
-    best_acc = -1
     flag_reinit = 0
     for meta_iteration in range(config.batch_iter):
         iter_time = time.time()
