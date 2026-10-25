@@ -249,7 +249,7 @@ def train(config, train_index, val_index):
         meta_val_loss, meta_val_acc, meta_val_pre, meta_val_rec, meta_val_f1 = main(config, tasks_data_val, tasks_labels_val, copy_model, meta_iteration, device,
                                            mini_task_size, criterion, Train=False, checkpoint= checkpoint)
 
-        if meta_val_acc > best_acc:
+
             best_acc = meta_val_acc
 
             if not os.path.exists(config.ckpt_path):
@@ -259,8 +259,6 @@ def train(config, train_index, val_index):
             save_dir = os.path.join(config.ckpt_path, model_name)
 
             torch.save(saved_dict, save_dir)
-        else:
-            pass
 
         val_loss.append(meta_val_loss)
         val_acc.append(meta_val_acc)
