@@ -89,8 +89,8 @@ def reinit(config, model, checkpoint, weight_ECG, weight_EMG, weight_EDA, weight
                 continue
             else:
                 if weight_ECG.shape[0] == init_weight.shape[0]:
-                    new_weight = weight_ECG[:64].to(device) * init_weight.to(device) + (1 - weight_ECG[0:64]).to(
-                        device) * current_weight.to(device)
+                    new_weight = weight_ECG[:64].to(device) * current_weight.to(device) + (1 - weight_ECG[0:64]).to(
+                        device) * init_weight.to(device)
                     param.data = new_weight
 
         elif 'EMG_net' in name:
@@ -100,8 +100,8 @@ def reinit(config, model, checkpoint, weight_ECG, weight_EMG, weight_EDA, weight
                 continue
             else:
                 if weight_EMG.shape[0] == init_weight.shape[0]:
-                    new_weight = weight_EMG[:64].to(device) * init_weight.to(device) + (1 - weight_EMG[0:64]).to(
-                        device) * current_weight.to(device)
+                    new_weight = weight_EMG[:64].to(device) * current_weight.to(device) + (1 - weight_EMG[0:64]).to(
+                        device) * init_weight.to(device)
                     param.data = new_weight
         elif 'EDA_net' in name:
             init_weight = checkpoint[name]
@@ -110,8 +110,8 @@ def reinit(config, model, checkpoint, weight_ECG, weight_EMG, weight_EDA, weight
                 continue
             else:
                 if weight_EDA.shape[0] == init_weight.shape[0]:
-                    new_weight = weight_EDA[:64].to(device) * init_weight.to(device) + (1 - weight_EDA[0:64]).to(
-                        device) * current_weight.to(device)
+                    new_weight = weight_EDA[:64].to(device) * current_weight.to(device) + (1 - weight_EDA[0:64]).to(
+                        device) * init_weight.to(device)
                     param.data = new_weight
         elif 'RESP_net' in name:
             init_weight = checkpoint[name]
@@ -120,8 +120,8 @@ def reinit(config, model, checkpoint, weight_ECG, weight_EMG, weight_EDA, weight
                 continue
             else:
                 if weight_RESP.shape[0] == init_weight.shape[0]:
-                    new_weight = weight_RESP[:64].to(device) * init_weight.to(device) + (1 - weight_RESP[0:64]).to(
-                        device) * current_weight.to(device)
+                    new_weight = weight_RESP[:64].to(device) * current_weight.to(device) + (1 - weight_RESP[0:64]).to(
+                        device) * init_weight.to(device)
                     param.data = new_weight
     return model
 
